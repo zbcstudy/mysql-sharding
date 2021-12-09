@@ -42,4 +42,13 @@ public class City implements Serializable {
     public void setProvince(String province) {
         this.province = province;
     }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", province='" + province + '\'' +
+                '}';
+    }
 }
