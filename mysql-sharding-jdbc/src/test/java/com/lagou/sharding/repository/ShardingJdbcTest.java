@@ -4,15 +4,19 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.lagou.sharding.ShardingApplication;
 import com.lagou.sharding.entity.City;
+import com.lagou.sharding.entity.Order;
 import com.lagou.sharding.entity.User;
 import com.lagou.sharding.entity.UserDetail;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Repeat;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author aaron
@@ -30,6 +34,9 @@ public class ShardingJdbcTest {
 
     @Autowired
     private CityRepository cityRepository;
+
+    @Autowired
+    private OrderRepository orderRepository;
 
     @Test
     public void testSave() {
@@ -76,5 +83,26 @@ public class ShardingJdbcTest {
         city.setProvince("shanghai");
         cityRepository.save(city);
         System.out.println(city.getId());
+    }
+
+    @Test
+    public void testOrderSharding() {
+        Random random = new Random();
+        for (int i = 0; i <100; i++) {
+            int companyId = random.nextInt(10);
+
+            Order order = new Order();
+            order.setCompanyId(companyId);
+            order.setDel(false);
+            order.setPositionId(78787878l);
+            order.setUserId(919919l);
+            order.setCreated(new Date());
+            order.setUpdated(new Date());
+            order.setPublishUserId(88888l);
+            order.setStatus(1);
+
+            orderRepository.save(order);
+        }
+
     }
 }
