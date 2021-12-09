@@ -23,3 +23,11 @@ CREATE TABLE `order1` (
 `updated`  timestamp NULL ON UPDATE CURRENT_TIMESTAMP ,
 PRIMARY KEY (`id`)
 );
+
+CREATE TABLE `t_crypt` (
+`id`  bigint(11) NOT NULL ,
+`name`  varchar(50) NULL ,
+`pwd_plain`  varchar(50) NULL ,
+`pwd_cipher` varchar (50) NULL,
+PRIMARY KEY (`id`)
+);
