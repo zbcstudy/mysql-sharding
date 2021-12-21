@@ -103,4 +103,19 @@ public class Order implements Serializable {
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", isDel=" + isDel +
+                ", companyId=" + companyId +
+                ", positionId=" + positionId +
+                ", userId=" + userId +
+                ", publishUserId=" + publishUserId +
+                ", status=" + status +
+                ", created=" + created +
+                ", updated=" + updated +
+                '}';
+    }
 }

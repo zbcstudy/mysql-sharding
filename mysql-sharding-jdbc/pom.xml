@@ -36,11 +36,11 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.shardingsphere</groupId>
-            <artifactId>sharding-transaction-xa-core</artifactId>
-            <version>4.1.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.shardingsphere</groupId>-->
+<!--            <artifactId>sharding-transaction-xa-core</artifactId>-->
+<!--            <version>4.1.1</version>-->
+<!--        </dependency>-->
 
 
 <!--        <dependency>-->
@@ -50,11 +50,11 @@
 <!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/sharding-transaction-base-seata-at -->
-        <dependency>
-            <groupId>org.apache.shardingsphere</groupId>
-            <artifactId>sharding-transaction-base-seata-at</artifactId>
-            <version>4.1.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.shardingsphere</groupId>-->
+<!--            <artifactId>sharding-transaction-base-seata-at</artifactId>-->
+<!--            <version>4.1.1</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>

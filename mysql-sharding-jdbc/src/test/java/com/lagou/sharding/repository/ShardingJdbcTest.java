@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 /**
@@ -87,14 +88,14 @@ public class ShardingJdbcTest {
     @Test
     public void testOrderSharding() {
         Random random = new Random();
-        for (int i = 0; i <100; i++) {
+        for (int i = 1; i < 100; i++) {
             int companyId = random.nextInt(10);
 
             Order order = new Order();
             order.setCompanyId(companyId);
             order.setDel(false);
             order.setPositionId(78787878l);
-            order.setUserId(919919l);
+            order.setUserId((long) i);
             order.setCreated(new Date());
             order.setUpdated(new Date());
             order.setPublishUserId(88888l);
@@ -103,5 +104,31 @@ public class ShardingJdbcTest {
             orderRepository.save(order);
         }
 
+    }
+
+    @Test
+    public void testOrderSharding1() {
+        for (int i = 1; i < 100; i++) {
+            Order order = new Order();
+            order.setCompanyId(i);
+            order.setDel(false);
+            order.setPositionId(78787878l);
+            order.setUserId((long) i);
+            order.setCreated(new Date());
+            order.setUpdated(new Date());
+            order.setPublishUserId(88888l);
+            order.setStatus(1);
+
+            orderRepository.save(order);
+        }
+
+    }
+
+    @Test
+    public void testOrderQuery() {
+        for (int i = 0; i < 4; i++) {
+            Optional<Order> order = orderRepository.findById(680171359770247169l);
+            order.ifPresent(System.out::println);
+        }
     }
 }
